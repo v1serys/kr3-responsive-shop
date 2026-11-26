@@ -290,3 +290,45 @@ main {
   justify-content: space-between;
   align-items: center;
 }
+/* ==========================================================================
+   Практика 13: Доступность (A11y)
+   ========================================================================== */
+
+/* 1. Видимый фокус для всех интерактивных элементов */
+:focus-visible,
+.site-nav__link:focus-visible,
+.button:focus-visible,
+.order-form__input:focus-visible,
+.order-form__textarea:focus-visible,
+.order-form__select:focus-visible,
+.scroll-top-btn:focus-visible {
+  outline: 3px solid var(--color-primary, #0057b8) !important;
+  outline-offset: 3px !important;
+}
+
+/* 2. Кнопка "Перейти к содержимому" (Skip Link) */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 1000;
+  padding: 8px 12px;
+  color: #ffffff;
+  background-color: #111111;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 16px;
+}
+
+/* 3. Улучшение контрастности текста (по методичке) */
+:root {
+  --color-text: #1f2937;
+  --color-muted: #4b5563;
+  --color-primary: #0057b8;
+  --color-danger: #b00020;
+}

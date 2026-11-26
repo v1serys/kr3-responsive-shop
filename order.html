@@ -52,7 +52,16 @@
           Заполните контактные данные и выберите интересующий гаджет из списка
           для быстрой доставки.
         </p>
-
+        <p
+          class="form-note"
+          style="
+            font-size: 14px;
+            color: var(--color-muted);
+            margin-bottom: var(--space-md);
+          "
+        >
+          Поля, отмеченные звёздочкой (*), обязательны для заполнения.
+        </p>
         <form
           class="order-form order-form--page"
           id="order-page-form"
@@ -62,7 +71,7 @@
         >
           <div class="order-form__field">
             <label class="order-form__label" for="page-order-name"
-              >Ваше имя</label
+              >Ваше имя *</label
             >
             <input
               class="order-form__input"
@@ -77,7 +86,7 @@
 
           <div class="order-form__field">
             <label class="order-form__label" for="page-order-email"
-              >E-mail</label
+              >E-mail *</label
             >
             <input
               class="order-form__input"
@@ -91,7 +100,7 @@
 
           <div class="order-form__field">
             <label class="order-form__label" for="page-order-phone"
-              >Номер телефона</label
+              >Номер телефона *</label
             >
             <input
               class="order-form__input"
@@ -107,7 +116,7 @@
 
           <div class="order-form__field">
             <label class="order-form__label" for="page-order-product"
-              >Выберите товар</label
+              >Выберите товар *</label
             >
             <select
               class="order-form__select"
