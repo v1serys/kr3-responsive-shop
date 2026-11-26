@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
@@ -9,6 +9,7 @@
     />
     <title>Наушники Pulse Audio Pro — TechPulse</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
     <script src="js/main.js" defer></script>
   </head>
   <body>
@@ -51,11 +52,28 @@
       <article class="product-detail">
         <div class="product-detail__card product-card product-card--featured">
           <span class="product-card__badge">Хит продаж</span>
-          <img
-            class="product-card__image"
-            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80"
-            alt="Беспроводные наушники Pulse Audio Pro"
-          />
+          <picture>
+            <source
+              media="(min-width: 1024px)"
+              srcset="
+                https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80
+              "
+            />
+            <source
+              media="(min-width: 768px)"
+              srcset="
+                https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80
+              "
+            />
+            <img
+              class="product-card__image"
+              src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"
+              alt="Беспроводные наушники Pulse Audio Pro"
+              width="600"
+              height="400"
+              loading="eager"
+            />
+          </picture>
           <h1 class="product-card__title">Наушники Pulse Audio Pro</h1>
           <p class="product-card__description">
             Флагманские беспроводные наушники с системой адаптивного активного
@@ -80,47 +98,49 @@
 
         <section class="section">
           <h2 class="section__title">Технические характеристики</h2>
-          <table class="product-table">
-            <caption class="product-table__caption">
-              Сводная таблица параметров устройства
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col">Параметр</th>
-                <th scope="col">Значение</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Категория</td>
-                <td>Полноразмерные беспроводные наушники</td>
-              </tr>
-              <tr>
-                <td>Артикул</td>
-                <td>TP-AUDIO-2026</td>
-              </tr>
-              <tr>
-                <td>Время автономной работы</td>
-                <td>До 40 часов (с включенным ANC)</td>
-              </tr>
-              <tr>
-                <td>Интерфейс подключения</td>
-                <td>Bluetooth 5.3, USB Type-C, Jack 3.5 мм</td>
-              </tr>
-              <tr>
-                <td>Материал корпуса</td>
-                <td>Анодированный алюминий и экокожа</td>
-              </tr>
-              <tr>
-                <td>Гарантия</td>
-                <td>12 месяцев официальной гарантии</td>
-              </tr>
-              <tr>
-                <td>Наличие</td>
-                <td>В наличии на складе (готов к отправке)</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-wrapper">
+            <table class="product-table">
+              <caption class="product-table__caption">
+                Сводная таблица параметров устройства
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Параметр</th>
+                  <th scope="col">Значение</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Категория</td>
+                  <td>Полноразмерные беспроводные наушники</td>
+                </tr>
+                <tr>
+                  <td>Артикул</td>
+                  <td>TP-AUDIO-2026</td>
+                </tr>
+                <tr>
+                  <td>Время автономной работы</td>
+                  <td>До 40 часов (с включенным ANC)</td>
+                </tr>
+                <tr>
+                  <td>Интерфейс подключения</td>
+                  <td>Bluetooth 5.3, USB Type-C, Jack 3.5 мм</td>
+                </tr>
+                <tr>
+                  <td>Материал корпуса</td>
+                  <td>Анодированный алюминий и экокожа</td>
+                </tr>
+                <tr>
+                  <td>Гарантия</td>
+                  <td>12 месяцев официальной гарантии</td>
+                </tr>
+                <tr>
+                  <td>Наличие</td>
+                  <td>В наличии на складе (готов к отправке)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
       </article>
     </main>

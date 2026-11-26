@@ -1,0 +1,292 @@
+/* ==========================================================================
+   Адаптивные стили для контрольной работы №3.
+   Подход: Mobile First.
+   Базовые стили рассчитаны на мобильный экран.
+   Расширения добавляются через min-width медиазапросы.
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Базовые правила (Mobile First)
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img,
+video,
+picture {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  overflow-x: hidden; /* временная защита от горизонтального скролла */
+}
+
+/* ==========================================================================
+   2. Основные контейнеры и отступы
+   ========================================================================== */
+main {
+  padding: var(--space-md);
+}
+
+/* Секции и крупные блоки: уменьшаем вертикальные отступы на мобильном */
+.section,
+.hero,
+.aside-info {
+  margin-bottom: var(--space-lg);
+}
+
+/* ==========================================================================
+   3. Шапка и навигация
+   ========================================================================== */
+.site-header {
+  position: static; /* на мобильном отключаем sticky */
+}
+
+.site-header__inner {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.site-header__logo {
+  align-self: flex-start;
+}
+
+.site-nav {
+  width: 100%;
+}
+
+.site-nav__list {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.site-nav__link {
+  display: block;
+  padding: 12px 14px; /* удобная зона нажатия */
+}
+
+/* ==========================================================================
+   4. Hero-блок
+   ========================================================================== */
+.hero {
+  padding: clamp(24px, 6vw, var(--space-xl));
+}
+
+.hero__title {
+  font-size: clamp(24px, 5vw + 8px, 42px);
+}
+
+.hero__text {
+  font-size: clamp(15px, 1.2vw + 10px, 18px);
+  margin-bottom: var(--space-md);
+}
+
+/* ==========================================================================
+   5. Сетка карточек товаров
+   ========================================================================== */
+.products-grid {
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.product-card__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   6. Каталог и боковой фильтр
+   ========================================================================== */
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'products'
+    'filters';
+  gap: var(--space-md);
+}
+
+.catalog-filters {
+  padding: var(--space-md);
+}
+
+/* ==========================================================================
+   7. Форма заявки
+   ========================================================================== */
+.order-dialog {
+  width: calc(100% - 24px);
+  padding: var(--space-lg);
+}
+
+.order-form__field,
+.order-form__actions {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.order-form__input,
+.order-form__select,
+.order-form__textarea {
+  width: 100%;
+  min-height: 44px;
+  font-size: 16px; /* предотвращает автозум на iOS */
+}
+
+.order-form__actions {
+  flex-direction: column;
+}
+
+.order-form__actions .button {
+  width: 100%;
+}
+
+/* ==========================================================================
+   8. Таблица характеристик
+   ========================================================================== */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-block: var(--space-md);
+}
+
+.product-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+}
+
+/* ==========================================================================
+   9. Кнопка «Наверх» (класс есть в HTML, но не был оформлен в style.css)
+   ========================================================================== */
+.scroll-top-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--color-primary, #2563eb);
+  color: var(--color-white, #fff);
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 1;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+  z-index: 40;
+}
+
+/* ==========================================================================
+   10. Планшет (min-width: 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+  main {
+    padding: var(--space-lg);
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .site-header__inner {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .site-nav {
+    width: auto;
+  }
+
+  .site-nav__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .site-nav__link {
+    padding: 8px 14px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .catalog-layout {
+    grid-template-columns: 270px minmax(0, 1fr);
+    grid-template-areas: 'filters products';
+    align-items: start;
+  }
+
+  .catalog-filters {
+    padding: var(--space-lg);
+  }
+
+  /* Форма — 2 колонки */
+  .order-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .order-form__field--wide,
+  .order-form__field--checkbox,
+  .order-form__actions {
+    grid-column: 1 / -1;
+  }
+
+  .order-form__actions {
+    flex-direction: row;
+  }
+
+  .order-form__actions .button {
+    width: auto;
+  }
+
+  .scroll-top-btn {
+    right: 24px;
+    bottom: 24px;
+  }
+}
+
+/* ==========================================================================
+   11. Desktop (min-width: 1024px)
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .catalog-layout {
+    grid-template-columns: 270px minmax(0, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Примечание.
+   В style.css правило .site-footer__inner обрывается на свойстве `justify`
+   (видимо, файл был частично потерян при копировании).
+   Дополняем его здесь, чтобы подвал выглядел корректно.
+   ========================================================================== */
+.site-footer__inner {
+  justify-content: space-between;
+  align-items: center;
+}
