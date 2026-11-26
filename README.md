@@ -73,4 +73,4 @@
 
 ## Ссылка
 
-GitHub Pages: https://v1serys.github.io/kr3-responsive-shop/.
+GitHub Pages: https://v1serys.github.io/kr3-responsive-shop/
